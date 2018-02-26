@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{F5E705FB-0F7F-4EDE-95F8-BADCBAB0EB29}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="CobranzaServer\CobranzaServer.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CobranzaAdmin\CobranzaAdmin.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="CobranzaMovil\CobranzaMovil.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CobranzaServer">
+        <MSBuild Projects="CobranzaServer\CobranzaServer.dproj"/>
+    </Target>
+    <Target Name="CobranzaServer:Clean">
+        <MSBuild Projects="CobranzaServer\CobranzaServer.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CobranzaServer:Make">
+        <MSBuild Projects="CobranzaServer\CobranzaServer.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CobranzaAdmin">
+        <MSBuild Projects="CobranzaAdmin\CobranzaAdmin.dproj"/>
+    </Target>
+    <Target Name="CobranzaAdmin:Clean">
+        <MSBuild Projects="CobranzaAdmin\CobranzaAdmin.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CobranzaAdmin:Make">
+        <MSBuild Projects="CobranzaAdmin\CobranzaAdmin.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="CobranzaMovil">
+        <MSBuild Projects="CobranzaMovil\CobranzaMovil.dproj"/>
+    </Target>
+    <Target Name="CobranzaMovil:Clean">
+        <MSBuild Projects="CobranzaMovil\CobranzaMovil.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CobranzaMovil:Make">
+        <MSBuild Projects="CobranzaMovil\CobranzaMovil.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CobranzaServer;CobranzaAdmin;CobranzaMovil"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CobranzaServer:Clean;CobranzaAdmin:Clean;CobranzaMovil:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CobranzaServer:Make;CobranzaAdmin:Make;CobranzaMovil:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
