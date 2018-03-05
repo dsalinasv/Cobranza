@@ -16,7 +16,7 @@ object dmData: TdmData
     LoginPrompt = False
     Params.Strings = (
       'DriverName=DataSnap'
-      'HostName=cevaf.redirectme.net'
+      'HostName=localhost'
       'port=111')
     Connected = True
     Left = 24
